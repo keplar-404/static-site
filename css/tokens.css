@@ -1,0 +1,75 @@
+/* ─────────────────────────────────────────────
+   Rhode Design Tokens
+   ───────────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  /* ── Colors ─────────────────────────────── */
+  --color-bg-warm:         #f5f0ea;
+  --color-bg-announcement: #edeae4;
+  --color-bg-white:        #ffffff;
+  --color-card-bg:         #efece8;
+  --color-border:          #ddd8d0;
+  --color-border-light:    #c8c3bc;
+
+  --color-text-primary:    #3b3731;
+  --color-text-dark:       #2e2b29;
+  --color-text-muted:      rgba(46, 43, 41, 0.55);
+  --color-text-rating:     rgba(46, 43, 41, 0.25);
+  --color-text-count:      rgba(46, 43, 41, 0.50);
+
+  --color-white:           #ffffff;
+
+  /* ── Typography ─────────────────────────── */
+  --font-body:    'Inter', sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
+
+  /* ── Spacing ─────────────────────────────── */
+  --space-xs:  4px;
+  --space-sm:  8px;
+  --space-md:  16px;
+  --space-lg:  24px;
+  --space-xl:  40px;
+
+  /* ── Transitions ─────────────────────────── */
+  --transition-fast:   150ms ease;
+  --transition-base:   200ms ease;
+  --transition-slow:   300ms ease;
+}
+
+/* ── Reset & Base ────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg-warm);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

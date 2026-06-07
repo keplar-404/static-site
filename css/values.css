@@ -1,0 +1,214 @@
+/* ============================================================
+   VALUES / MISSION SECTION — val__*
+   Prefix: val__  (no conflicts with other styles)
+   ============================================================ */
+
+.val__section {
+  display: flex;
+  width: 100%;
+  min-height: 580px;
+  font-family: var(--font-body);
+  background-color: white;
+  /* Inset gutters so the card panels float inside the section */
+  padding: 0 28px 28px;
+  gap: 14px;
+  box-sizing: border-box;
+}
+
+/* ── Left Panel ───────────────────────────── */
+.val__left {
+  flex: 0 0 calc(50% - 7px);
+  max-width: calc(50% - 7px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 52px 44px 0 44px;
+  background-color: var(--color-bg-warm);
+  /* Box card shape */
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* ── Content block (headline + CTA) ─────── */
+.val__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 40px;
+}
+
+.val__headline {
+  font-family: var(--font-body);
+  font-size: clamp(20px, 2.2vw, 28px);
+  font-weight: 400;
+  color: var(--color-text-primary);
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  margin: 0;
+  /* Transition for fade */
+  transition: opacity 0.38s ease;
+}
+
+.val__headline strong {
+  font-weight: 600;
+  color: var(--color-text-dark);
+}
+
+.val__cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 18px;
+  border: 1px solid rgba(46, 43, 41, 0.45);
+  border-radius: 9999px;
+  background: transparent;
+  color: var(--color-text-dark);
+  font-family: var(--font-body);
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  width: fit-content;
+  transition:
+    background var(--transition-base),
+    color var(--transition-base),
+    border-color var(--transition-base),
+    opacity 0.38s ease;
+}
+
+.val__cta-btn:hover {
+  background: var(--color-text-dark);
+  color: var(--color-white);
+  border-color: var(--color-text-dark);
+}
+
+/* ── Tab navigation ──────────────────────── */
+.val__tabs {
+  display: flex;
+  flex-direction: column;
+}
+
+.val__tab {
+  display: flex;
+  align-items: center;
+  padding: 18px 0;
+  border-top: 1px solid var(--color-border);
+  cursor: pointer;
+  transition: color var(--transition-base);
+  color: var(--color-text-muted);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  background: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  text-align: left;
+  font-family: var(--font-body);
+  user-select: none;
+  position: relative;
+}
+
+/* Active indicator — thin dark left bar */
+.val__tab::before {
+  content: '';
+  position: absolute;
+  left: -44px;
+  /* flush to left edge of card (matches padding) */
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--color-text-dark);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.3s ease;
+  border-radius: 0 2px 2px 0;
+}
+
+.val__tab--active {
+  color: var(--color-text-dark);
+  font-weight: 700;
+}
+
+.val__tab--active::before {
+  transform: scaleY(1);
+}
+
+.val__tab:hover:not(.val__tab--active) {
+  color: var(--color-text-primary);
+}
+
+/* ── Right Panel (image) ─────────────────── */
+.val__right {
+  flex: 0 0 calc(50% - 7px);
+  max-width: calc(50% - 7px);
+  position: relative;
+  overflow: hidden;
+  /* Box card shape — clips image to rounded corners */
+  border-radius: 16px;
+}
+
+.val__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: opacity 0.45s ease, transform 0.55s ease;
+}
+
+/* Fade state — JS adds this during transition */
+.val__fading .val__headline,
+.val__fading .val__cta-btn {
+  opacity: 0;
+}
+
+.val__image--fading {
+  opacity: 0;
+  transform: scale(1.02);
+}
+
+/* ── Responsive ──────────────────────────── */
+@media (max-width: 900px) {
+  .val__section {
+    flex-direction: column;
+    min-height: unset;
+    padding: 0 16px 16px;
+    gap: 12px;
+  }
+
+  .val__left,
+  .val__right {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .val__left {
+    padding: 40px 32px 0;
+  }
+
+  .val__right {
+    height: 380px;
+  }
+
+  .val__tab::before {
+    left: -32px;
+  }
+}
+
+@media (max-width: 640px) {
+  .val__left {
+    padding: 32px 24px 0;
+  }
+
+  .val__right {
+    height: 280px;
+  }
+
+  .val__tab::before {
+    left: -24px;
+  }
+}

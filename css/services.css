@@ -1,0 +1,175 @@
+/* ============================================================
+   SERVICES SECTION — srv__*
+   Outer bg: white | Inner grid container: warm cream
+   ============================================================ */
+
+.srv__section {
+  background: #ffffff;
+  padding: 80px 48px 90px;
+  font-family: var(--font-body);
+  box-sizing: border-box;
+}
+
+/* ── Section header ──────────────────────── */
+.srv__header {
+  text-align: center;
+  margin-bottom: 44px;
+}
+
+.srv__eyebrow {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #9b7d65;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.srv__title {
+  font-size: clamp(26px, 3.5vw, 40px);
+  font-weight: 300;
+  letter-spacing: -0.025em;
+  color: var(--color-text-dark);
+  margin: 0;
+  line-height: 1.1;
+}
+
+/* ── Inner container with warm bg ─────────── */
+.srv__container {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: #f5f0ea;           /* warm cream — different from white outer */
+  border-radius: 20px;
+  padding: 50px 48px;
+  box-sizing: border-box;
+}
+
+/* ── 4-card grid ─────────────────────────── */
+.srv__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;                       /* thin gap to create divider effect */
+}
+
+/* ── Each card ───────────────────────────── */
+.srv__card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 32px 28px;
+  background: #f5f0ea;
+  border-radius: 16px;
+  transition: background var(--transition-base), transform 0.3s ease;
+  cursor: default;
+}
+
+.srv__card:hover {
+  background: #ede7df;
+  transform: translateY(-4px);
+}
+
+/* ── Icon wrapper ────────────────────────── */
+.srv__icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.3s ease;
+}
+
+.srv__card:hover .srv__icon-wrap {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.srv__icon-wrap svg {
+  width: 22px;
+  height: 22px;
+  stroke: #8c6e55;
+  fill: none;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ── Card text ───────────────────────────── */
+.srv__card-title {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--color-text-dark);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.srv__card-text {
+  font-size: 12px;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+/* ── Scroll reveal ───────────────────────── */
+.srv__card {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.55s ease,
+    transform 0.55s ease,
+    background var(--transition-base);
+}
+
+.srv__section.srv--visible .srv__card:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.05s; }
+.srv__section.srv--visible .srv__card:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.15s; }
+.srv__section.srv--visible .srv__card:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.25s; }
+.srv__section.srv--visible .srv__card:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 0.35s; }
+
+/* hover re-apply after visible */
+.srv__section.srv--visible .srv__card:hover {
+  transform: translateY(-4px);
+}
+
+/* ── Header reveal ───────────────────────── */
+.srv__header {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.srv__section.srv--visible .srv__header {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Responsive ──────────────────────────── */
+@media (max-width: 900px) {
+  .srv__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .srv__container {
+    padding: 36px 28px;
+  }
+}
+
+@media (max-width: 560px) {
+  .srv__section {
+    padding: 60px 20px 70px;
+  }
+
+  .srv__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .srv__container {
+    padding: 28px 20px;
+    border-radius: 14px;
+  }
+}

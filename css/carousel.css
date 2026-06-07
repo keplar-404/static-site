@@ -1,0 +1,413 @@
+/* ─────────────────────────────────────────────
+   Product Carousel Section
+   ───────────────────────────────────────────── */
+
+.carousel-section {
+  position: relative;
+  background-color: var(--color-bg-white);
+  padding: 28px 56px;
+  /* Hide the system cursor only while inside a card — done via JS class */
+}
+
+/* ── Navigation Arrows ──────────────────── */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 30;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border-light);
+  background-color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-primary);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  transition:
+    background-color var(--transition-base),
+    border-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.carousel-arrow:hover {
+  background-color: #ece8e3;
+  border-color: #a8a39c;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.carousel-arrow--prev {
+  left: 14px;
+}
+
+.carousel-arrow--next {
+  right: 14px;
+}
+
+/* ── Cards Grid — 4 equal columns ───────── */
+.carousel-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+/* ── Individual Product Card ────────────── */
+.product-card {
+  position: relative;
+  border-radius: 14px;
+  background-color: var(--color-card-bg);
+  overflow: hidden;
+  cursor: none;
+  /* hide native cursor over cards; custom bubble takes over */
+  height: 460px;
+  outline: none;
+  transition: transform var(--transition-base);
+}
+
+.product-card:hover {
+  transform: translateY(-2px);
+}
+
+.product-card:focus-visible {
+  outline: 2px solid var(--color-text-primary);
+  outline-offset: 2px;
+}
+
+/* ── Static Header (title + badge) ─────── */
+.card-static-header {
+  position: absolute;
+  inset-inline: 14px;
+  top: 13px;
+  z-index: 20;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+/* card-title is always dark — never changes on hover */
+.card-title {
+  font-size: 46px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-text-dark);
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+  /* add a subtle light halo so black text pops on dark images */
+  text-shadow:
+    0 0 20px rgba(255, 255, 255, 0.6),
+    0 0 40px rgba(255, 255, 255, 0.3);
+}
+
+.card-title--multiline {
+  font-size: 38px;
+  line-height: 1.05;
+}
+
+.card-badge {
+  margin-top: 8px;
+  flex-shrink: 0;
+  border-radius: 9999px;
+  padding: 5px 12px;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  /* glass dark pill — readable over any background */
+  background: rgba(30, 27, 25, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  white-space: nowrap;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* ── Default State ──────────────────────── */
+.card-default {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  opacity: 1;
+  transition: opacity var(--transition-slow);
+  pointer-events: none;
+}
+
+.product-card:hover .card-default,
+.product-card:focus-visible .card-default {
+  opacity: 0;
+}
+
+/* Product image — full-bleed background for the entire card */
+.card-product-image {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.card-product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover .card-product-image img {
+  transform: scale(1.04);
+}
+
+/* Gradient overlay so bottom info text stays readable */
+.card-product-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+      transparent 40%,
+      rgba(46, 43, 41, 0.45) 100%);
+  pointer-events: none;
+}
+
+/* Bottom info — pinned over the image via z-index */
+.card-info {
+  position: relative;
+  z-index: 5;
+  margin-top: auto;
+  padding: 10px 16px 16px;
+}
+
+/* Adjust text colors for readability over dark gradient */
+.card-name,
+.card-price {
+  color: var(--color-white);
+}
+
+.card-subtitle {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.card-stars .stars-filled {
+  color: var(--color-white);
+}
+
+.card-stars .stars-count {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.card-stars {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  margin-bottom: 4px;
+}
+
+.stars-filled {
+  font-size: 12px;
+  line-height: 1;
+  color: var(--color-text-dark);
+  letter-spacing: -1px;
+}
+
+.stars-empty {
+  font-size: 12px;
+  line-height: 1;
+  color: var(--color-text-rating);
+  letter-spacing: -1px;
+}
+
+.stars-count {
+  margin-left: 5px;
+  font-size: 11px;
+  color: var(--color-text-count);
+}
+
+.card-meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.card-name {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-white);
+  font-family: var(--font-body);
+  line-height: 1.3;
+}
+
+.card-price {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--color-white);
+  white-space: nowrap;
+  font-family: var(--font-body);
+}
+
+.card-subtitle {
+  margin-top: 2px;
+  font-size: 11px;
+  color: var(--color-white);
+  font-family: var(--font-body);
+}
+
+/* ── Hover State — FULL BLEED image ─────── */
+.card-hover-state {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity var(--transition-slow);
+}
+
+.product-card:hover .card-hover-state,
+.product-card:focus-visible .card-hover-state {
+  opacity: 1;
+}
+
+.card-hover-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* fills the entire card */
+  object-position: center top;
+  display: block;
+}
+
+/* CTA button on hover */
+.card-cta-wrap {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  right: 14px;
+  z-index: 5;
+}
+
+.card-cta {
+  width: 100%;
+  display: block;
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  padding: 12px 16px;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-dark);
+  font-family: var(--font-body);
+  text-align: center;
+  transition: background-color var(--transition-base), transform var(--transition-fast);
+  cursor: pointer;
+}
+
+.card-cta:hover {
+  background-color: var(--color-white);
+  transform: scale(1.02);
+}
+
+/* ════════════════════════════════════════════
+   GLOBAL CURSOR-FOLLOWING SWIPE BUBBLE
+   One element per carousel — follows the mouse
+   ════════════════════════════════════════════ */
+.swipe-cursor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+
+  /* Glass morphism */
+  background: rgba(245, 240, 234, 0.55);
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  /* Hidden by default; starts at top-left, JS moves it via transform */
+  opacity: 0;
+  pointer-events: none;
+  z-index: 40;
+  will-change: transform;
+
+  /* Fade in/out */
+  transition: opacity 0.22s ease;
+}
+
+.swipe-cursor--visible {
+  opacity: 1;
+}
+
+.swipe-cursor span {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--color-text-dark);
+  font-family: var(--font-body);
+  text-transform: uppercase;
+}
+
+/* ── Responsive ─────────────────────────── */
+@media (max-width: 1100px) {
+  .carousel-section {
+    padding: 24px 44px;
+  }
+
+  .carousel-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card-title {
+    font-size: 42px;
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-section {
+    padding: 20px 16px;
+  }
+
+  .carousel-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-card {
+    height: 360px;
+  }
+
+  .card-title {
+    font-size: 36px;
+  }
+
+  .swipe-cursor {
+    display: none;
+  }
+
+  .carousel-arrow--prev {
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%) rotate(90deg);
+  }
+
+  .carousel-arrow--next {
+    bottom: -20px;
+    top: auto;
+    right: 50%;
+    transform: translateX(50%) rotate(90deg);
+  }
+}

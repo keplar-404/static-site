@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Showcase Component</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/product-showcase.css" />
+
+  <!-- Demo-only page styles (NOT part of the component) -->
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #e8e2db;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+    .demo-wrapper {
+      width: 100%;
+      max-width: 1040px;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    }
+  </style>
+</head>
+<body>
+
+<div class="demo-wrapper">
+  <!-- ============================================================
+       COMPONENT START — Copy from here to include in your project
+       ============================================================ -->
+
+  <section class="product-showcase__section" aria-label="Featured Product Showcase">
+
+    <!-- LEFT: Model / Campaign Image -->
+    <div class="product-showcase__left">
+      <img
+        class="product-showcase__left-img"
+        src="assets/model-beach.jpg"
+        alt="Model at the beach holding Highlight Milk product"
+      />
+
+      <!-- Dot Pagination -->
+      <div class="product-showcase__dots" role="tablist" aria-label="Slide navigation">
+        <button
+          class="product-showcase__dot product-showcase__dot--active"
+          role="tab"
+          aria-selected="true"
+          aria-label="Slide 1"
+          data-psc-index="0"
+        ></button>
+        <button
+          class="product-showcase__dot"
+          role="tab"
+          aria-selected="false"
+          aria-label="Slide 2"
+          data-psc-index="1"
+        ></button>
+        <button
+          class="product-showcase__dot"
+          role="tab"
+          aria-selected="false"
+          aria-label="Slide 3"
+          data-psc-index="2"
+        ></button>
+        <button
+          class="product-showcase__dot"
+          role="tab"
+          aria-selected="false"
+          aria-label="Slide 4"
+          data-psc-index="3"
+        ></button>
+      </div>
+    </div>
+
+    <!-- RIGHT: Product Info -->
+    <div class="product-showcase__right">
+
+      <!-- Product swatch / hero image -->
+      <div class="product-showcase__product-img-wrap">
+        <img
+          class="product-showcase__product-img"
+          src="assets/highlight-milk.png"
+          alt="Highlight Milk – glossy pink liquid spheres"
+        />
+      </div>
+
+      <!-- Next arrow -->
+      <button
+        class="product-showcase__arrow-btn"
+        id="psc-next-btn"
+        aria-label="Next product"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+      </button>
+
+      <!-- Text & CTA -->
+      <div class="product-showcase__info">
+        <h2 class="product-showcase__product-name">Highlight Milk</h2>
+        <p class="product-showcase__product-sub">multipurpose luminizer</p>
+        <button class="product-showcase__waitlist-btn" id="psc-waitlist-btn" type="button">
+          Join the Waitlist
+        </button>
+      </div>
+
+      <!-- Slide counter -->
+      <span class="product-showcase__counter" aria-live="polite" id="psc-counter">1/4</span>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       COMPONENT END
+       ============================================================ -->
+</div>
+
+<script>
+  /* ---------------------------------------------------------------
+     Minimal JS for the product-showcase component (dots + counter)
+     Namespaced under "psc" to avoid global conflicts
+  --------------------------------------------------------------- */
+  (function () {
+    const PSC = {
+      total: 4,
+      current: 0,
+
+      dots: document.querySelectorAll('.product-showcase__dot'),
+      counter: document.getElementById('psc-counter'),
+      nextBtn: document.getElementById('psc-next-btn'),
+
+      goTo(index) {
+        this.current = (index + this.total) % this.total;
+        this.dots.forEach((dot, i) => {
+          dot.classList.toggle('product-showcase__dot--active', i === this.current);
+          dot.setAttribute('aria-selected', i === this.current ? 'true' : 'false');
+        });
+        if (this.counter) {
+          this.counter.textContent = `${this.current + 1}/${this.total}`;
+        }
+      },
+
+      init() {
+        this.dots.forEach((dot, i) => {
+          dot.addEventListener('click', () => this.goTo(i));
+        });
+        if (this.nextBtn) {
+          this.nextBtn.addEventListener('click', () => this.goTo(this.current + 1));
+        }
+      }
+    };
+
+    PSC.init();
+  })();
+</script>
+
+</body>
+</html>

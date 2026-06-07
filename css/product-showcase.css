@@ -1,0 +1,277 @@
+/* ============================================================
+   PRODUCT SHOWCASE SECTION — product-showcase__*
+   Namespaced to avoid conflicts. Uses Rhode design tokens.
+   ============================================================ */
+
+/* ---------- Layout ---------- */
+.product-showcase__section {
+  display: flex;
+  width: 100%;
+  height: 620px;           /* increased height */
+  font-family: var(--font-body);
+  overflow: hidden;
+  background: var(--color-bg-warm);
+}
+
+/* ---------- Left Panel (model photo) ---------- */
+.product-showcase__left {
+  position: relative;
+  flex: 0 0 46%;
+  max-width: 46%;
+  overflow: hidden;
+}
+
+.product-showcase__left-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.7s ease;
+}
+
+.product-showcase__left:hover .product-showcase__left-img {
+  transform: scale(1.025);
+}
+
+/* Dot Pagination */
+.product-showcase__dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.product-showcase__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.45);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background var(--transition-base), transform var(--transition-base);
+}
+
+.product-showcase__dot--active {
+  background: var(--color-white);
+  transform: scale(1.35);
+}
+
+.product-showcase__dot:hover:not(.product-showcase__dot--active) {
+  background: rgba(255, 255, 255, 0.75);
+}
+
+/* ---------- Right Panel (product info) ---------- */
+.product-showcase__right {
+  position: relative;
+  flex: 0 0 54%;
+  max-width: 54%;
+
+  /* Warm off-white — same as the reference */
+  background-color: #f0ece6;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;        /* info block pinned to bottom */
+  padding: 0 0 36px 44px;
+  overflow: hidden;
+}
+
+/* ---------- Product Image (centered, floating) ---------- */
+.product-showcase__product-img-wrap {
+  position: absolute;
+  /* sits in the upper 65% of the right panel */
+  top: 0;
+  left: 0;
+  right: 64px;            /* leave room for arrow */
+  bottom: 168px;          /* stop above the info block */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.product-showcase__product-img {
+  width: 76%;
+  max-width: 360px;
+  object-fit: contain;
+  animation: psc-float 5s ease-in-out infinite;
+}
+
+@keyframes psc-float {
+  0%, 100% { transform: translateY(0px);  }
+  50%       { transform: translateY(-10px); }
+}
+
+/* ---------- Arrow / Next button ---------- */
+.product-showcase__arrow-btn {
+  position: absolute;
+  top: 50%;
+  right: 28px;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(46, 43, 41, 0.28);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition:
+    background var(--transition-base),
+    border-color var(--transition-base),
+    transform var(--transition-slow);
+  z-index: 4;
+}
+
+.product-showcase__arrow-btn:hover {
+  background: rgba(46, 43, 41, 0.06);
+  border-color: var(--color-text-primary);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.product-showcase__arrow-btn svg {
+  width: 15px;
+  height: 15px;
+  stroke: var(--color-text-dark);
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform var(--transition-fast);
+}
+
+.product-showcase__arrow-btn:hover svg {
+  transform: translateX(2px);
+}
+
+/* ---------- Bottom Info Block ---------- */
+.product-showcase__info {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.product-showcase__product-name {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-dark);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.product-showcase__product-sub {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--color-text-muted);
+  margin: 0 0 14px 0;
+  letter-spacing: 0;
+}
+
+/* JOIN THE WAITLIST button — outlined pill */
+.product-showcase__waitlist-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 18px;
+  border: 1px solid var(--color-text-dark);
+  background: transparent;
+  color: var(--color-text-dark);
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 9999px;          /* pill shape matching image */
+  width: fit-content;
+  transition:
+    background var(--transition-base),
+    color var(--transition-base);
+}
+
+.product-showcase__waitlist-btn:hover {
+  background: var(--color-text-dark);
+  color: var(--color-bg-warm);
+}
+
+/* ---------- Slide counter — large editorial "1/4" ---------- */
+.product-showcase__counter {
+  position: absolute;
+  bottom: 30px;
+  right: 36px;
+  font-size: 36px;              /* large, editorial */
+  font-weight: 300;
+  color: rgba(46, 43, 41, 0.55);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  pointer-events: none;
+  font-family: var(--font-display);
+  z-index: 2;
+}
+
+/* ---------- Slide fade transition ---------- */
+.product-showcase__left-img,
+.product-showcase__product-img,
+.product-showcase__info {
+  transition: opacity 0.35s ease;
+}
+
+.psc-fade-out {
+  opacity: 0 !important;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .product-showcase__section {
+    height: auto;
+    min-height: 480px;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-showcase__section {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .product-showcase__left,
+  .product-showcase__right {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .product-showcase__left {
+    height: 300px;
+  }
+
+  .product-showcase__right {
+    min-height: 360px;
+    padding: 0 0 28px 24px;
+  }
+
+  .product-showcase__product-img-wrap {
+    right: 0;
+    bottom: 160px;
+  }
+
+  .product-showcase__counter {
+    font-size: 26px;
+    bottom: 22px;
+    right: 20px;
+  }
+
+  .product-showcase__arrow-btn {
+    right: 14px;
+  }
+}

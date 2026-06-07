@@ -1,0 +1,224 @@
+/* ─────────────────────────────────────────────
+   Hero Section
+   ───────────────────────────────────────────── */
+
+/* ── Announcement Bar Carousel ────────────── */
+.announcement-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-bg-announcement);
+  border-bottom: 1px solid var(--color-border);
+  padding: 10px 48px;
+  gap: 0;
+  overflow: hidden;
+}
+
+/* Viewport clips to exactly ONE item height */
+.announcement-viewport {
+  overflow: hidden;
+  flex: 1;
+  text-align: center;
+  height: 13px;          /* item font(11px) + padding(2px) */
+}
+
+/* Track — each item stacks vertically; JS slides via transform */
+.announcement-track {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.announcement-item {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  font-weight: 500;
+  line-height: 1;
+  padding: 1px 0;
+  height: 13px;           /* must match viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Left arrow button */
+.announcement-arrow {
+  position: absolute;
+  left: 16px;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-primary);
+  opacity: 0.5;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity var(--transition-base);
+}
+
+.announcement-arrow:hover {
+  opacity: 1;
+}
+
+/* ── Ticker Strip — tkr__* ───────────────── */
+.tkr__wrap {
+  overflow: hidden;
+  background-color: var(--color-bg-warm);
+  border-bottom: 1px solid var(--color-border);
+  padding: 11px 0;
+  /* Pause on hover */
+}
+
+.tkr__wrap:hover .tkr__track {
+  animation-play-state: paused;
+}
+
+/* Track holds 2 identical groups side-by-side */
+.tkr__track {
+  display: flex;
+  width: max-content;
+  animation: tkr-scroll 28s linear infinite;
+}
+
+@keyframes tkr-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Each group = one full set of items */
+.tkr__group {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding-right: 28px;
+  flex-shrink: 0;
+}
+
+.tkr__item {
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Diamond / star separator */
+.tkr__sep {
+  font-size: 9px;
+  color: #8c6e55;
+  flex-shrink: 0;
+  line-height: 1;
+  opacity: 0.75;
+}
+
+/* ── Navigation ─────────────────────────── */
+.site-nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-bg-warm);
+  border-bottom: 1px solid var(--color-border);
+  padding: 18px 40px;
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.nav-link {
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  font-weight: 500;
+  opacity: 1;
+  transition: opacity var(--transition-base);
+}
+
+.nav-link:hover {
+  opacity: 0.5;
+}
+
+.nav-logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 30px;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  color: var(--color-text-primary);
+  text-transform: lowercase;
+  user-select: none;
+  transition: opacity var(--transition-base);
+}
+
+.nav-logo:hover {
+  opacity: 0.5;
+}
+
+/* ── Hero Image ─────────────────────────── */
+.hero-image-wrap {
+  position: relative;
+  width: 100%;
+  height: 820px;
+  overflow: hidden;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.hero-headline {
+  color: var(--color-white);
+  font-size: 38px;
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  max-width: 600px;
+}
+
+.hero-cta {
+  border: 1px solid var(--color-white);
+  border-radius: 9999px;
+  padding: 9px 28px;
+  color: var(--color-white);
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-family: var(--font-body);
+  background: transparent;
+  transition: background-color var(--transition-slow), color var(--transition-slow);
+}
+
+.hero-cta:hover {
+  background-color: var(--color-white);
+  color: var(--color-text-primary);
+}

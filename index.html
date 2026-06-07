@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rhode – Summer '26</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/hero.css" />
+  <link rel="stylesheet" href="css/carousel.css" />
+  <link rel="stylesheet" href="css/product-showcase.css" />
+  <link rel="stylesheet" href="css/social-gallery.css" />
+  <link rel="stylesheet" href="css/values.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/editorial-banner.css" />
+  <link rel="stylesheet" href="css/services.css" />
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════════
+         HERO SECTION
+    ═══════════════════════════════════════════ -->
+  <section class="hero-section">
+
+    <!-- Announcement Bar Carousel -->
+    <div class="announcement-bar" role="region" aria-label="Announcements" id="announcement-bar">
+
+      <!-- Left arrow — slides carousel backward -->
+      <button class="announcement-arrow" id="ann-prev" aria-label="Previous announcement">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+      </button>
+
+      <!-- Sliding text viewport -->
+      <div class="announcement-viewport">
+        <div class="announcement-track" id="ann-track">
+          <span class="announcement-item">Free US Shipping on Orders Over $45</span>
+          <span class="announcement-item">New Drop: Peptide Lip Tint — Limited Shades</span>
+          <span class="announcement-item">Complimentary Sample with Every Order</span>
+          <span class="announcement-item">The Summer Kit — Warm-Weather Essentials</span>
+          <span class="announcement-item">Join the Waitlist for Pocket Bronze</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Navigation -->
+    <nav class="site-nav" aria-label="Main navigation">
+      <div class="nav-left">
+        <a href="index.html" class="nav-link">Shop</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="#" class="nav-link">Futures</a>
+      </div>
+      <a href="#" class="nav-logo" aria-label="Rhode home">rhode</a>
+      <div class="nav-right">
+        <a href="#" class="nav-link">Search</a>
+        <a href="#" class="nav-link">Account</a>
+        <a href="#" class="nav-link">Cart (1)</a>
+      </div>
+    </nav>
+
+    <!-- Hero Image -->
+    <div class="hero-image-wrap">
+      <img
+        src="https://images.pexels.com/photos/9952748/pexels-photo-9952748.jpeg?auto=compress&cs=tinysrgb&w=1440&q=80"
+        alt="Woman sitting on vintage luggage – mahdi chaghari on Pexels" class="hero-image" loading="eager"
+        decoding="async" />
+      <div class="hero-overlay">
+        <p class="hero-headline">Introducing the summer '26 collection.</p>
+        <button class="hero-cta" aria-label="Collection launch: June 9th at 9am PT">
+          June 9th at 9am pt
+        </button>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+         TICKER STRIP (after hero)
+    ═══════════════════════════════════════════ -->
+  <div class="tkr__wrap" aria-hidden="true">
+    <div class="tkr__track">
+      <div class="tkr__group">
+        <span class="tkr__item">Free Shipping over $50</span>
+        <span class="tkr__sep">✶</span>
+        <span class="tkr__item">Clean Ingredients</span>
+        <span class="tkr__sep">✶</span>
+        <span class="tkr__item">Cruelty-Free</span>
+        <span class="tkr__sep">✶</span>
+        <span class="tkr__item">Dermatologist Tested</span>
+        <span class="tkr__sep">✶</span>
+        <span class="tkr__item">Peptide-Powered</span>
+        <span class="tkr__sep">✶</span>
+        <span class="tkr__item">Gluten-Free Formula</span>
+        <span class="tkr__sep">✶</span>
+      </div>
+      <div class="tkr__group">
+        <span class="tkr__item">Free Shipping over $50</span>
+        <span class="tkr__sep">✶</span>
+        <span class="tkr__item">Clean Ingredients</span>
+        <span class="tkr__sep">✶</span>
+        <span class="tkr__item">Cruelty-Free</span>
+        <span class="tkr__sep">✶</span>
+        <span class="tkr__item">Dermatologist Tested</span>
+        <span class="tkr__sep">✶</span>
+        <span class="tkr__item">Peptide-Powered</span>
+        <span class="tkr__sep">✶</span>
+        <span class="tkr__item">Gluten-Free Formula</span>
+        <span class="tkr__sep">✶</span>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- ═══════════════════════════════════════════
+         PRODUCT CAROUSEL SECTION
+    ═══════════════════════════════════════════ -->
+  <section class="carousel-section" aria-label="Featured products" id="carousel-section">
+
+    <!-- Prev Arrow -->
+    <button class="carousel-arrow carousel-arrow--prev" aria-label="Previous products">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"
+        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M9 2L4 7L9 12" />
+      </svg>
+    </button>
+
+    <!-- ONE global cursor-following swipe bubble (shared across all cards) -->
+    <div class="swipe-cursor" id="swipe-cursor" aria-hidden="true">
+      <svg width="20" height="22" viewBox="0 0 20 22" fill="none" stroke="rgba(46,43,41,0.85)" stroke-width="1.4"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M8 2v9" />
+        <path d="M11 3.5v7.5" />
+        <path d="M5.5 5.5v6" />
+        <path d="M14 5v7.5c0 2.485-2.015 4.5-4.5 4.5H9c-2.485 0-4.5-2.015-4.5-4.5V10" />
+      </svg>
+      <span>swipe</span>
+    </div>
+
+    <!-- Cards grid -->
+    <div class="carousel-grid">
+
+      <!-- Card 1: bronze -->
+      <article class="product-card" tabindex="0">
+        <div class="card-static-header">
+          <span class="card-title" style="font-family: var(--font-display)">bronze</span>
+          <span class="card-badge">first access</span>
+        </div>
+        <!-- Default state -->
+        <div class="card-default">
+          <div class="card-product-image">
+            <img src="assets/pocket-bronze.png" alt="Pocket Bronze stick product" loading="lazy" decoding="async" />
+          </div>
+          <div class="card-info">
+            <div class="card-meta">
+              <span class="card-name">Pocket Bronze</span>
+              <span class="card-price">$25.00</span>
+            </div>
+            <p class="card-subtitle">Long-wearing warmth</p>
+          </div>
+        </div>
+        <!-- Hover state -->
+        <div class="card-hover-state" aria-hidden="true">
+          <img
+            src="https://images.pexels.com/photos/12657359/pexels-photo-12657359.jpeg?auto=compress&cs=tinysrgb&w=600&q=80"
+            alt="Model wearing Pocket Bronze" class="card-hover-image" loading="lazy" decoding="async" />
+          <div class="card-cta-wrap">
+            <button class="card-cta">Join the Waitlist — $25.00</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2: tint -->
+      <article class="product-card" tabindex="0">
+        <div class="card-static-header">
+          <span class="card-title" style="font-family: var(--font-display)">tint</span>
+          <span class="card-badge">only at rhode</span>
+        </div>
+        <div class="card-default">
+          <div class="card-product-image">
+            <img src="assets/peptide-lip-tint.png" alt="Peptide Lip Tint tube" loading="lazy" decoding="async" />
+          </div>
+          <div class="card-info">
+            <div class="card-stars">
+              <span class="stars-filled" aria-hidden="true">★★★★★</span>
+              <span class="stars-count">(16,398)</span>
+            </div>
+            <div class="card-meta">
+              <span class="card-name">Peptide Lip Tint</span>
+              <span class="card-price">$20.00</span>
+            </div>
+            <p class="card-subtitle">Limited edition shade</p>
+          </div>
+        </div>
+        <div class="card-hover-state" aria-hidden="true">
+          <img
+            src="https://images.pexels.com/photos/670380/pexels-photo-670380.jpeg?auto=compress&cs=tinysrgb&w=600&q=80"
+            alt="Model wearing Peptide Lip Tint" class="card-hover-image" loading="lazy" decoding="async" />
+          <div class="card-cta-wrap">
+            <button class="card-cta">Add to Cart — $20.00</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 3: summer -->
+      <article class="product-card" tabindex="0">
+        <div class="card-static-header">
+          <span class="card-title" style="font-family: var(--font-display)">summer</span>
+          <span class="card-badge">only at rhode</span>
+        </div>
+        <div class="card-default">
+          <div class="card-product-image">
+            <img src="assets/summer-kit.png" alt="The Summer Kit" loading="lazy" decoding="async" />
+          </div>
+          <div class="card-info">
+            <div class="card-meta">
+              <span class="card-name">The Summer Kit</span>
+              <span class="card-price">$100.00</span>
+            </div>
+            <p class="card-subtitle">Warm-weather essentials</p>
+          </div>
+        </div>
+        <div class="card-hover-state" aria-hidden="true">
+          <img
+            src="https://images.pexels.com/photos/17022652/pexels-photo-17022652.jpeg?auto=compress&cs=tinysrgb&w=600&q=80"
+            alt="Model wearing Summer Kit" class="card-hover-image" loading="lazy" decoding="async" />
+          <div class="card-cta-wrap">
+            <button class="card-cta">Add to Cart — $100.00</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 4: glow -->
+      <article class="product-card" tabindex="0">
+        <div class="card-static-header">
+          <span class="card-title" style="font-family: var(--font-display)">glow</span>
+          <span class="card-badge">new drop</span>
+        </div>
+        <div class="card-default">
+          <div class="card-product-image">
+            <img src="assets/highlight-milk.png" alt="Highlight Milk glow product" loading="lazy" decoding="async" />
+          </div>
+          <div class="card-info">
+            <div class="card-stars">
+              <span class="stars-filled" aria-hidden="true">★★★★★</span>
+              <span class="stars-count">(4,812)</span>
+            </div>
+            <div class="card-meta">
+              <span class="card-name">Highlight Milk</span>
+              <span class="card-price">$32.00</span>
+            </div>
+            <p class="card-subtitle">Multipurpose luminizer</p>
+          </div>
+        </div>
+        <div class="card-hover-state" aria-hidden="true">
+          <img
+            src="https://images.pexels.com/photos/9952748/pexels-photo-9952748.jpeg?auto=compress&cs=tinysrgb&w=600&q=80"
+            alt="Model glowing" class="card-hover-image" loading="lazy" decoding="async" />
+          <div class="card-cta-wrap">
+            <button class="card-cta">Join the Waitlist — $32.00</button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Next Arrow -->
+    <button class="carousel-arrow carousel-arrow--next" aria-label="Next products">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"
+        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M5 2L10 7L5 12" />
+      </svg>
+    </button>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+         PRODUCT SHOWCASE SECTION
+    ═══════════════════════════════════════════ -->
+  <section class="product-showcase__section" aria-label="Featured Product Showcase">
+
+    <!-- LEFT: Model / Campaign Image -->
+    <div class="product-showcase__left">
+      <img class="product-showcase__left-img" id="psc-left-img" src="assets/model-beach.jpg"
+        alt="Model at the beach holding Highlight Milk product" loading="eager" decoding="async" />
+
+      <!-- Dot Pagination -->
+      <div class="product-showcase__dots" role="tablist" aria-label="Slide navigation">
+        <button class="product-showcase__dot product-showcase__dot--active" role="tab" aria-selected="true"
+          aria-label="Slide 1" data-psc-index="0"></button>
+        <button class="product-showcase__dot" role="tab" aria-selected="false" aria-label="Slide 2"
+          data-psc-index="1"></button>
+        <button class="product-showcase__dot" role="tab" aria-selected="false" aria-label="Slide 3"
+          data-psc-index="2"></button>
+        <button class="product-showcase__dot" role="tab" aria-selected="false" aria-label="Slide 4"
+          data-psc-index="3"></button>
+      </div>
+    </div>
+
+    <!-- RIGHT: Product Info -->
+    <div class="product-showcase__right">
+
+      <!-- Product swatch image -->
+      <div class="product-showcase__product-img-wrap">
+        <img class="product-showcase__product-img" id="psc-right-img" src="assets/highlight-milk.png"
+          alt="Highlight Milk product" loading="eager" decoding="async" />
+      </div>
+
+      <!-- Next arrow -->
+      <button class="product-showcase__arrow-btn" id="psc-next-btn" aria-label="Next product">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+      </button>
+
+      <!-- Text & CTA -->
+      <div class="product-showcase__info" id="psc-info">
+        <h2 class="product-showcase__product-name" id="psc-name">Highlight Milk</h2>
+        <p class="product-showcase__product-sub" id="psc-sub">multipurpose luminizer</p>
+        <button class="product-showcase__waitlist-btn" id="psc-cta-btn" type="button">
+          Join the Waitlist
+        </button>
+      </div>
+
+      <!-- Slide counter -->
+      <span class="product-showcase__counter" aria-live="polite" id="psc-counter">1/4</span>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+         RHODE + YOU — Social Gallery
+    ═══════════════════════════════════════════ -->
+  <section class="rhy__section" aria-label="Rhode + You social gallery">
+
+    <div class="rhy__header">
+      <h2 class="rhy__title">rhode + you</h2>
+      <button class="rhy__social-btn" type="button">Find us on social</button>
+    </div>
+
+    <!-- Slider viewport -->
+    <div class="rhy__viewport">
+      <div class="rhy__track" id="rhy-track">
+
+        <div class="rhy__slide">
+          <img
+            src="https://images.pexels.com/photos/1462637/pexels-photo-1462637.jpeg?auto=compress&cs=tinysrgb&w=600&q=80"
+            alt="Model smiling at the beach with Rhode product" loading="lazy" decoding="async" />
+        </div>
+
+        <div class="rhy__slide">
+          <img
+            src="https://images.pexels.com/photos/3762875/pexels-photo-3762875.jpeg?auto=compress&cs=tinysrgb&w=600&q=80"
+            alt="Close up of glowing skin with product" loading="lazy" decoding="async" />
+        </div>
+
+        <div class="rhy__slide">
+          <img
+            src="https://images.pexels.com/photos/2681751/pexels-photo-2681751.jpeg?auto=compress&cs=tinysrgb&w=600&q=80"
+            alt="Portrait of model with dewy skin" loading="lazy" decoding="async" />
+        </div>
+
+        <div class="rhy__slide">
+          <img
+            src="https://images.pexels.com/photos/3373736/pexels-photo-3373736.jpeg?auto=compress&cs=tinysrgb&w=600&q=80"
+            alt="Close up of glossy lips" loading="lazy" decoding="async" />
+        </div>
+
+        <div class="rhy__slide">
+          <img
+            src="https://images.pexels.com/photos/6621462/pexels-photo-6621462.jpeg?auto=compress&cs=tinysrgb&w=600&q=80"
+            alt="Lip gloss tube against lips" loading="lazy" decoding="async" />
+        </div>
+
+        <div class="rhy__slide">
+          <img
+            src="https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=600&q=80"
+            alt="Model applying Rhode product" loading="lazy" decoding="async" />
+        </div>
+
+        <div class="rhy__slide">
+          <img
+            src="https://images.pexels.com/photos/7256136/pexels-photo-7256136.jpeg?auto=compress&cs=tinysrgb&w=600&q=80"
+            alt="Rhode products on suede surface" loading="lazy" decoding="async" />
+        </div>
+
+        <div class="rhy__slide">
+          <img
+            src="https://images.pexels.com/photos/9953060/pexels-photo-9953060.jpeg?auto=compress&cs=tinysrgb&w=600&q=80"
+            alt="Close up of glowing summer skin" loading="lazy" decoding="async" />
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Footer: progress bar + nav arrows -->
+    <div class="rhy__footer">
+      <div class="rhy__progress-wrap" role="progressbar" aria-label="Gallery progress">
+        <div class="rhy__progress-fill" id="rhy-progress"></div>
+      </div>
+      <nav class="rhy__nav" aria-label="Gallery navigation">
+        <button class="rhy__arrow" id="rhy-prev" aria-label="Previous photos" disabled>
+          <svg viewBox="0 0 14 14" aria-hidden="true">
+            <path d="M9 2L4 7L9 12" />
+          </svg>
+        </button>
+        <button class="rhy__arrow" id="rhy-next" aria-label="Next photos">
+          <svg viewBox="0 0 14 14" aria-hidden="true">
+            <path d="M5 2L10 7L5 12" />
+          </svg>
+        </button>
+      </nav>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+         VALUES / MISSION SECTION
+    ═══════════════════════════════════════════ -->
+  <section class="val__section" aria-label="Our values">
+
+    <!-- LEFT: tabbed content -->
+    <div class="val__left">
+
+      <div class="val__content" id="val-content">
+        <p class="val__headline" id="val-headline">
+          To <strong>RESTORE, PROTECT,</strong> and
+          <strong>NURTURE</strong> the skin you have now for
+          lasting results that reveal themselves over time.
+        </p>
+        <button class="val__cta-btn" id="val-cta">Our Values</button>
+      </div>
+
+      <!-- Tab navigation -->
+      <nav class="val__tabs" aria-label="Values navigation">
+        <button class="val__tab val__tab--active" data-val-index="0" type="button">mission</button>
+        <button class="val__tab" data-val-index="1" type="button">philanthropy</button>
+        <button class="val__tab" data-val-index="2" type="button">sustainability</button>
+      </nav>
+
+    </div>
+
+    <!-- RIGHT: editorial image -->
+    <div class="val__right">
+      <img class="val__image" id="val-image"
+        src="https://images.pexels.com/photos/2169434/pexels-photo-2169434.jpeg?auto=compress&cs=tinysrgb&w=900&q=80"
+        alt="Editorial model portrait for mission" loading="lazy" decoding="async" />
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+         EDITORIAL BANNER — Summer on the skin
+    ═══════════════════════════════════════════ -->
+  <section class="edb__section" aria-label="Editorial campaign">
+
+    <div class="edb__track" id="edb-track">
+
+      <!-- Slide 1 -->
+      <div class="edb__slide edb__slide--active">
+        <img
+          src="https://images.pexels.com/photos/1371360/pexels-photo-1371360.jpeg?auto=compress&cs=tinysrgb&w=1440&q=85"
+          alt="Summer editorial — model on rooftop" loading="lazy" decoding="async" />
+        <div class="edb__overlay" id="edb-overlay-0">
+          <p class="edb__headline">Summer on the skin.</p>
+          <button class="edb__cta-btn" type="button">See you June 9th</button>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="edb__slide">
+        <img
+          src="https://images.pexels.com/photos/1537671/pexels-photo-1537671.jpeg?auto=compress&cs=tinysrgb&w=1440&q=85"
+          alt="Summer editorial — golden hour skin" loading="lazy" decoding="async" />
+        <div class="edb__overlay" id="edb-overlay-1">
+          <p class="edb__headline">Golden hour glow.</p>
+          <button class="edb__cta-btn" type="button">Shop the look</button>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="edb__slide">
+        <img
+          src="https://images.pexels.com/photos/2119869/pexels-photo-2119869.jpeg?auto=compress&cs=tinysrgb&w=1440&q=85"
+          alt="Summer editorial — sun-kissed skin" loading="lazy" decoding="async" />
+        <div class="edb__overlay" id="edb-overlay-2">
+          <p class="edb__headline">Effortless summer skin.</p>
+          <button class="edb__cta-btn" type="button">Explore now</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Prev / Next arrows -->
+    <button class="edb__arrow edb__arrow--prev" id="edb-prev" aria-label="Previous slide">
+      <svg viewBox="0 0 24 24">
+        <path d="M15 18l-6-6 6-6" />
+      </svg>
+    </button>
+    <button class="edb__arrow edb__arrow--next" id="edb-next" aria-label="Next slide">
+      <svg viewBox="0 0 24 24">
+        <path d="M9 18l6-6-6-6" />
+      </svg>
+    </button>
+
+    <!-- Dot indicators -->
+    <div class="edb__dots" role="tablist" aria-label="Slide indicators">
+      <button class="edb__dot edb__dot--active" data-edb-dot="0" aria-label="Slide 1" role="tab"></button>
+      <button class="edb__dot" data-edb-dot="1" aria-label="Slide 2" role="tab"></button>
+      <button class="edb__dot" data-edb-dot="2" aria-label="Slide 3" role="tab"></button>
+    </div>
+
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       SERVICES SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="srv__section" id="srv-section" aria-label="Why Rhode">
+
+    <!-- Header -->
+    <header class="srv__header">
+      <span class="srv__eyebrow">why rhode</span>
+      <h2 class="srv__title">Skin-first, always.</h2>
+    </header>
+
+    <!-- Warm container with 4-grid -->
+    <div class="srv__container">
+      <div class="srv__grid">
+
+        <!-- Card 1: Free Shipping -->
+        <div class="srv__card">
+          <div class="srv__icon-wrap">
+            <!-- Lucide: truck -->
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3"/>
+              <rect width="7" height="7" x="14" y="10" rx="1"/>
+              <path d="M22 17H5M5 17a2 2 0 1 0 4 0 2 2 0 0 0-4 0zm13 0a2 2 0 1 0 4 0 2 2 0 0 0-4 0z"/>
+            </svg>
+          </div>
+          <h3 class="srv__card-title">Free Shipping</h3>
+          <p class="srv__card-text">Complimentary US shipping on all orders over $50. Fast, tracked, and always on time.</p>
+        </div>
+
+        <!-- Card 2: Clean Ingredients -->
+        <div class="srv__card">
+          <div class="srv__icon-wrap">
+            <!-- Lucide: leaf -->
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/>
+              <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+            </svg>
+          </div>
+          <h3 class="srv__card-title">Clean Ingredients</h3>
+          <p class="srv__card-text">Formulated without the bad stuff. Every ingredient earns its place — nothing more, nothing less.</p>
+        </div>
+
+        <!-- Card 3: Dermatologist Tested -->
+        <div class="srv__card">
+          <div class="srv__icon-wrap">
+            <!-- Lucide: shield-check -->
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+          </div>
+          <h3 class="srv__card-title">Dermatologist Tested</h3>
+          <p class="srv__card-text">Clinically studied and skin-safe. Trusted by dermatologists for all skin types and tones.</p>
+        </div>
+
+        <!-- Card 4: Easy Returns -->
+        <div class="srv__card">
+          <div class="srv__icon-wrap">
+            <!-- Lucide: refresh-ccw -->
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+              <path d="M3 3v5h5"/>
+              <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/>
+              <path d="M16 21h5v-5"/>
+            </svg>
+          </div>
+          <h3 class="srv__card-title">30-Day Returns</h3>
+          <p class="srv__card-text">Not feeling it? No problem. Hassle-free returns within 30 days, no questions asked.</p>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+         FOOTER
+    ═══════════════════════════════════════════ -->
+  <footer class="ftr__footer" role="contentinfo">
+
+    <!-- Giant wordmark -->
+    <div class="ftr__wordmark-wrap">
+      <span class="ftr__wordmark" aria-label="Rhode">rhode</span>
+    </div>
+
+    <!-- Main grid -->
+    <div class="ftr__main">
+
+      <!-- Col 1: Newsletter -->
+      <div class="ftr__col">
+        <p class="ftr__newsletter-tagline">Join us on the rhode to an effortless glow.</p>
+        <p class="ftr__newsletter-sub">Glaze your inbox with tips, tricks &amp; exclusive content from Hailey.</p>
+        <div class="ftr__email-row">
+          <input class="ftr__email-input" type="email" placeholder="Email Address" aria-label="Email address" />
+          <button class="ftr__subscribe-btn" type="button">Subscribe</button>
+        </div>
+        <p class="ftr__privacy-note">By signing up, you agree to our <a href="#">Privacy Policy</a>*.</p>
+      </div>
+
+      <!-- Col 2: Navigate -->
+      <div class="ftr__col">
+        <h3 class="ftr__col-title">Navigate</h3>
+        <ul class="ftr__link-list">
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">Our Story</a></li>
+          <li><a href="#">Rhode Futures</a></li>
+          <li><a href="#">Impact</a></li>
+          <li><a href="#">VLOG</a></li>
+          <li><a href="#">Where to Find Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Social -->
+      <div class="ftr__col">
+        <h3 class="ftr__col-title">Social</h3>
+        <ul class="ftr__social-list">
+          <li>
+            <a href="#" class="ftr__social-link" aria-label="Instagram">
+              <span class="ftr__social-icon ftr__social-icon--fill">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                </svg>
+              </span>
+              Instagram
+            </a>
+          </li>
+          <li>
+            <a href="#" class="ftr__social-link" aria-label="YouTube">
+              <span class="ftr__social-icon ftr__social-icon--fill">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                </svg>
+              </span>
+              Youtube
+            </a>
+          </li>
+          <li>
+            <a href="#" class="ftr__social-link" aria-label="TikTok">
+              <span class="ftr__social-icon ftr__social-icon--fill">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.2 8.2 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z" />
+                </svg>
+              </span>
+              TikTok
+            </a>
+          </li>
+          <li>
+            <a href="#" class="ftr__social-link" aria-label="Pinterest">
+              <span class="ftr__social-icon ftr__social-icon--fill">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z" />
+                </svg>
+              </span>
+              Pinterest
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Official -->
+      <div class="ftr__col">
+        <h3 class="ftr__col-title">Official</h3>
+        <ul class="ftr__link-list">
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Accessibility Statement</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Events</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 5: Support -->
+      <div class="ftr__col">
+        <h3 class="ftr__col-title">Support</h3>
+        <ul class="ftr__support-list">
+          <li class="ftr__highlight">We&rsquo;re here M-F 9am &ndash; 5pm PST.</li>
+          <li><a href="#">Drop us a note anytime.</a></li>
+          <li><a href="#">Do Not Sell or Share My Personal Information</a></li>
+          <li><a href="#">Cookie Preferences</a></li>
+          <li>&copy; rhode 2026</li>
+        </ul>
+        <a href="#" class="ftr__afterpay" aria-label="Pay with Afterpay">
+          <span class="ftr__afterpay-logo" aria-hidden="true">A</span>
+          Afterpay
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="ftr__bottom-bar">
+      <button class="ftr__country-btn" type="button" aria-label="Change country or region">
+        Country/region:
+        <span class="ftr__country-label">United States (USD $)</span>
+        <svg viewBox="0 0 10 6" aria-hidden="true">
+          <path d="M0 0l5 6 5-6z" />
+        </svg>
+      </button>
+    </div>
+
+  </footer>
+
+</body>
+<script>
+  /* ── Cursor-following swipe bubble ─────────────────── */
+  (function () {
+    var section = document.getElementById('carousel-section');
+    var cursor = document.getElementById('swipe-cursor');
+    if (!section || !cursor) return;
+
+    var mouseX = 0, mouseY = 0;
+    var posX = 0, posY = 0;
+    var visible = false;
+    var raf;
+
+    /* Smooth lerp follow */
+    function animate() {
+      posX += (mouseX - posX) * 0.12;
+      posY += (mouseY - posY) * 0.12;
+      cursor.style.transform = 'translate(' + posX + 'px, ' + posY + 'px) translate(-50%, -50%)';
+      raf = requestAnimationFrame(animate);
+    }
+
+    section.addEventListener('mousemove', function (e) {
+      var rect = section.getBoundingClientRect();
+      mouseX = e.clientX - rect.left;
+      mouseY = e.clientY - rect.top;
+
+      /* Only show when over a product-card hover-state is active */
+      var target = e.target.closest('.product-card');
+      if (target) {
+        if (!visible) {
+          visible = true;
+          cursor.classList.add('swipe-cursor--visible');
+          if (!raf) raf = requestAnimationFrame(animate);
+        }
+      } else {
+        if (visible) {
+          visible = false;
+          cursor.classList.remove('swipe-cursor--visible');
+        }
+      }
+    });
+
+    section.addEventListener('mouseleave', function () {
+      visible = false;
+      cursor.classList.remove('swipe-cursor--visible');
+    });
+
+    raf = requestAnimationFrame(animate);
+  })();
+
+  /* ── Product Showcase — Full Slider ──────────────────── */
+  (function () {
+
+    /* ── Slide data ───────────────────────────────────────── */
+    var slides = [
+      {
+        leftSrc: 'assets/model-beach.jpg',
+        leftAlt: 'Model at the beach holding Highlight Milk',
+        rightSrc: 'assets/highlight-milk.png',
+        rightAlt: 'Highlight Milk swatches',
+        name: 'Highlight Milk',
+        sub: 'multipurpose luminizer',
+        cta: 'Join the Waitlist'
+      },
+      {
+        leftSrc: 'https://images.pexels.com/photos/12657359/pexels-photo-12657359.jpeg?auto=compress&cs=tinysrgb&w=800&q=80',
+        leftAlt: 'Model with glowing skin',
+        rightSrc: 'assets/pocket-bronze.png',
+        rightAlt: 'Pocket Bronze stick',
+        name: 'Pocket Bronze',
+        sub: 'long-wearing warmth',
+        cta: 'Add to Cart'
+      },
+      {
+        leftSrc: 'https://images.pexels.com/photos/670380/pexels-photo-670380.jpeg?auto=compress&cs=tinysrgb&w=800&q=80',
+        leftAlt: 'Model with lip product',
+        rightSrc: 'assets/peptide-lip-tint.png',
+        rightAlt: 'Peptide Lip Tint tube',
+        name: 'Peptide Lip Tint',
+        sub: 'limited edition shade',
+        cta: 'Add to Cart'
+      },
+      {
+        leftSrc: 'https://images.pexels.com/photos/17022652/pexels-photo-17022652.jpeg?auto=compress&cs=tinysrgb&w=800&q=80',
+        leftAlt: 'Model with summer kit',
+        rightSrc: 'assets/summer-kit.png',
+        rightAlt: 'The Summer Kit set',
+        name: 'The Summer Kit',
+        sub: 'warm-weather essentials',
+        cta: 'Shop Now'
+      }
+    ];
+
+    /* ── DOM refs ───────────────────────────────────────── */
+    var leftImg = document.getElementById('psc-left-img');
+    var rightImg = document.getElementById('psc-right-img');
+    var nameEl = document.getElementById('psc-name');
+    var subEl = document.getElementById('psc-sub');
+    var ctaBtn = document.getElementById('psc-cta-btn');
+    var counter = document.getElementById('psc-counter');
+    var nextBtn = document.getElementById('psc-next-btn');
+    var dots = document.querySelectorAll('.product-showcase__dot');
+    var infoEl = document.getElementById('psc-info');
+
+    var current = 0;
+    var total = slides.length;
+    var animating = false;
+    var FADE_MS = 350;
+
+    /* ── Transition helper ────────────────────────────────── */
+    function goTo(index) {
+      if (animating) return;
+      animating = true;
+
+      var next = ((index % total) + total) % total;
+      var slide = slides[next];
+
+      /* 1. Fade out images + info */
+      leftImg.classList.add('psc-fade-out');
+      rightImg.classList.add('psc-fade-out');
+      infoEl.classList.add('psc-fade-out');
+
+      setTimeout(function () {
+
+        /* 2. Swap content */
+        leftImg.src = slide.leftSrc;
+        leftImg.alt = slide.leftAlt;
+        rightImg.src = slide.rightSrc;
+        rightImg.alt = slide.rightAlt;
+        nameEl.textContent = slide.name;
+        subEl.textContent = slide.sub;
+        ctaBtn.textContent = slide.cta;
+
+        /* 3. Update counter + dots */
+        current = next;
+        if (counter) counter.textContent = (current + 1) + '/' + total;
+        dots.forEach(function (d, i) {
+          d.classList.toggle('product-showcase__dot--active', i === current);
+          d.setAttribute('aria-selected', i === current ? 'true' : 'false');
+        });
+
+        /* 4. Fade back in */
+        leftImg.classList.remove('psc-fade-out');
+        rightImg.classList.remove('psc-fade-out');
+        infoEl.classList.remove('psc-fade-out');
+
+        setTimeout(function () { animating = false; }, FADE_MS);
+
+      }, FADE_MS);
+    }
+
+    /* ── Events ───────────────────────────────────────── */
+    if (nextBtn) nextBtn.addEventListener('click', function () { goTo(current + 1); });
+
+    dots.forEach(function (dot, i) {
+      dot.addEventListener('click', function () { goTo(i); });
+    });
+
+  })();
+  /* ── Rhode + You — Social Gallery Slider ────────────── */
+  (function () {
+    var track = document.getElementById('rhy-track');
+    var prevBtn = document.getElementById('rhy-prev');
+    var nextBtn = document.getElementById('rhy-next');
+    var progress = document.getElementById('rhy-progress');
+    if (!track || !prevBtn || !nextBtn) return;
+
+    var slides = track.querySelectorAll('.rhy__slide');
+    var total = slides.length;   /* 8 */
+    var current = 0;
+    var GAP = 10;              /* matches CSS gap */
+
+    function getSlideWidth() {
+      /* live measurement so it works on resize */
+      return slides[0].offsetWidth + GAP;
+    }
+
+    function maxIndex() {
+      /* stop when last slide is fully visible */
+      var viewport = track.parentElement.offsetWidth;
+      var trackW = total * getSlideWidth() - GAP;
+      return Math.max(0, Math.ceil((trackW - viewport) / getSlideWidth()));
+    }
+
+    function update() {
+      var sw = getSlideWidth();
+      var max = maxIndex();
+      current = Math.min(current, max);
+
+      /* Slide the track */
+      track.style.transform = 'translateX(-' + (current * sw) + 'px)';
+
+      /* Progress bar */
+      var pct = max > 0 ? (current / max) * 100 : 0;
+      progress.style.width = pct + '%';
+
+      /* Disable / enable arrows */
+      prevBtn.disabled = current === 0;
+      nextBtn.disabled = current >= max;
+    }
+
+    prevBtn.addEventListener('click', function () {
+      if (current > 0) { current--; update(); }
+    });
+
+    nextBtn.addEventListener('click', function () {
+      var max = maxIndex();
+      if (current < max) { current++; update(); }
+    });
+
+    /* Re-calculate on resize */
+    window.addEventListener('resize', function () {
+      current = 0;
+      update();
+    });
+
+    /* Initial state */
+    update();
+  })();
+  /* ── Values / Mission Tab Switcher ───────────────── */
+  (function () {
+
+    /* ─ Tab data ──────────────────────────────────────── */
+    var tabs_data = [
+      {
+        headline: 'To <strong>RESTORE, PROTECT,</strong> and <strong>NURTURE</strong> the skin you have now for lasting results that reveal themselves over time.',
+        cta: 'Our Values',
+        imgSrc: 'https://images.pexels.com/photos/2169434/pexels-photo-2169434.jpeg?auto=compress&cs=tinysrgb&w=900&q=80',
+        imgAlt: 'Editorial model portrait for mission'
+      },
+      {
+        headline: 'We believe beauty has the power to <strong>give back.</strong> Rhode donates a portion of every sale to support access, education, and community wellbeing across the world.',
+        cta: 'Learn More',
+        imgSrc: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=900&q=80',
+        imgAlt: 'Portrait celebrating community and philanthropy'
+      },
+      {
+        headline: 'Clean formulas, <strong>responsible sourcing,</strong> and packaging designed with our planet in mind — because beautiful skin starts with a healthy earth.',
+        cta: 'Our Approach',
+        imgSrc: 'https://images.pexels.com/photos/3762875/pexels-photo-3762875.jpeg?auto=compress&cs=tinysrgb&w=900&q=80',
+        imgAlt: 'Natural beauty and sustainability'
+      }
+    ];
+
+    /* ─ DOM refs ──────────────────────────────────────── */
+    var headline = document.getElementById('val-headline');
+    var ctaBtn = document.getElementById('val-cta');
+    var image = document.getElementById('val-image');
+    var content = document.getElementById('val-content');
+    var tabBtns = document.querySelectorAll('.val__tab');
+    var current = 0;
+    var animating = false;
+    var FADE = 380;   /* ms — must match CSS transition */
+
+    /* ─ Switch tab ─────────────────────────────────────── */
+    function switchTo(index) {
+      if (animating || index === current) return;
+      animating = true;
+
+      var data = tabs_data[index];
+
+      /* 1 — Fade out text + image */
+      content.classList.add('val__fading');
+      image.classList.add('val__image--fading');
+
+      setTimeout(function () {
+
+        /* 2 — Swap content */
+        headline.innerHTML = data.headline;
+        ctaBtn.textContent = data.cta;
+        image.src = data.imgSrc;
+        image.alt = data.imgAlt;
+
+        /* 3 — Update active tab */
+        current = index;
+        tabBtns.forEach(function (btn, i) {
+          btn.classList.toggle('val__tab--active', i === index);
+        });
+
+        /* 4 — Fade back in */
+        content.classList.remove('val__fading');
+        image.classList.remove('val__image--fading');
+
+        setTimeout(function () { animating = false; }, FADE);
+
+      }, FADE);
+    }
+
+    /* ─ Bind tab clicks ────────────────────────────────── */
+    tabBtns.forEach(function (btn, i) {
+      btn.addEventListener('click', function () { switchTo(i); });
+    });
+
+  })();
+
+  /* ── Editorial Banner Slider ─────────────────── */
+  (function () {
+    var track = document.getElementById('edb-track');
+    var prevBtn = document.getElementById('edb-prev');
+    var nextBtn = document.getElementById('edb-next');
+    if (!track) return;
+
+    var slides = track.querySelectorAll('.edb__slide');
+    var dots = document.querySelectorAll('.edb__dot');
+    var total = slides.length;
+    var current = 0;
+    var timer = null;
+    var INTERVAL = 5000;
+
+    function goTo(index) {
+      /* Remove active class from current */
+      slides[current].classList.remove('edb__slide--active');
+      dots[current].classList.remove('edb__dot--active');
+
+      current = (index + total) % total;
+
+      /* Slide the track */
+      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+
+      /* Activate new slide */
+      slides[current].classList.add('edb__slide--active');
+      dots[current].classList.add('edb__dot--active');
+    }
+
+    function startTimer() {
+      clearInterval(timer);
+      timer = setInterval(function () { goTo(current + 1); }, INTERVAL);
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function () {
+        goTo(current - 1); startTimer();
+      });
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function () {
+        goTo(current + 1); startTimer();
+      });
+    }
+
+    dots.forEach(function (dot, i) {
+      dot.addEventListener('click', function () {
+        goTo(i); startTimer();
+      });
+    });
+
+    /* Pause auto-advance on hover */
+    track.parentElement.addEventListener('mouseenter', function () {
+      clearInterval(timer);
+    });
+    track.parentElement.addEventListener('mouseleave', startTimer);
+
+    startTimer();
+  })();
+
+  /* ── Announcement Bar Carousel ───────────────── */
+  (function () {
+    var track = document.getElementById('ann-track');
+    var prevBtn = document.getElementById('ann-prev');
+    if (!track) return;
+
+    var items = track.querySelectorAll('.announcement-item');
+    var total = items.length;
+    var current = 0;
+    var timer = null;
+    var ITEM_H = 13;    /* px — matches CSS height on .announcement-item */
+    var INTERVAL = 3500;
+
+    function goTo(index) {
+      current = (index + total) % total;
+      track.style.transform = 'translateY(-' + (current * ITEM_H) + 'px)';
+    }
+
+    function startTimer() {
+      clearInterval(timer);
+      timer = setInterval(function () { goTo(current + 1); }, INTERVAL);
+    }
+
+    /* Left arrow — step backward, restart auto-advance */
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function () {
+        goTo(current - 1);
+        startTimer();
+      });
+    }
+
+    startTimer();
+  })();
+
+  /* ── Services Section: Scroll reveal ── */
+  (function () {
+    var section = document.getElementById('srv-section');
+    if (!section) return;
+    var io = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) {
+        section.classList.add('srv--visible');
+        io.disconnect();
+      }
+    }, { threshold: 0.15 });
+    io.observe(section);
+  })();
+</script>
+
+</html>
